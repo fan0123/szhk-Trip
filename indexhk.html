@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="referrer" content="no-referrer">
+    <title>清明深港游·莎莎&洁洁专享指南｜坪洲出发 欢乐谷·长洲岛·摩天轮海鲜收官</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #f5f9fe;
+            color: #1e2f3c;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        .hero {
+            position: relative;
+            background-color: #0b3b4f;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(11, 59, 79, 0.95) 0%, rgba(31, 110, 92, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        .badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+        }
+        /* 图片画廊样式 */
+        .image-gallery {
+            background: white;
+            border-radius: 1.8rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            padding: 1rem;
+        }
+        .gallery-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            padding-left: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .gallery-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            scrollbar-width: thin;
+            padding-bottom: 0.8rem;
+        }
+        .gallery-scroll img {
+            height: 180px;
+            width: auto;
+            border-radius: 1rem;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .gallery-scroll img:hover {
+            transform: scale(1.02);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        /* 行程卡片 */
+        .day-card {
+            background: white;
+            border-radius: 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #e5edf2;
+        }
+        .day-header {
+            padding: 1.2rem 1.8rem;
+            border-bottom: 2px solid #eff3f8;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .day-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1f6e5c, #289672);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .day-date {
+            background: #eef2fa;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+        .day-content {
+            padding: 1.5rem 1.8rem;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.6rem;
+            border-left: 3px solid #cde0e9;
+            padding-left: 1rem;
+        }
+        .time {
+            min-width: 85px;
+            font-weight: 700;
+            color: #1f6e5c;
+            font-size: 0.85rem;
+        }
+        .detail {
+            flex: 1;
+        }
+        .detail strong {
+            font-size: 1rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .meta-badge {
+            background: #edf4f8;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.7rem;
+            margin-right: 0.5rem;
+            margin-top: 0.4rem;
+            display: inline-block;
+        }
+        .highlight-note {
+            background: #FEF7E0;
+            border-left: 4px solid #F4B942;
+            padding: 0.8rem 1.2rem;
+            border-radius: 1.2rem;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+        .hk-box {
+            background: #EAF9F0;
+            border-left: 4px solid #2A9D8F;
+        }
+        .btn-link {
+            display: inline-block;
+            background: #1f6e5c;
+            color: white;
+            border-radius: 2rem;
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+        
+        /* 页面内嵌大图样式 */
+        .inline-photo {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 1rem;
+            margin-top: 10px;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6f8ea0;
+            border-top: 1px solid #d9e2ea;
+            padding-top: 2rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            .day-header { padding: 1rem; }
+            .day-content { padding: 1rem; }
+            .time { min-width: 70px; }
+            .hero-content { padding: 1rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .inline-photo { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero" style="background-image: url('https://sns-webpic-qc.xhscdn.com/202603222319/430db0edf28f8cff6df0e033580351c5/1040g2sg31qsrgaibngh05pb4cn50lbilag3bofg!nc_n_webp_mw_1');">
+        <div class="hero-content">
+            <h1>🌸 清明深港游</h1>
+            <p style="opacity:0.9; margin-top: 0.5rem;">莎莎&洁洁专享指南 | 欢乐谷尖叫 · 长洲岛漫步 · 摩天轮海鲜收官</p>
+            <div class="badge-group">
+                <span class="badge">📅 4月3日23:00 抵达</span>
+                <span class="badge">🎢 4.4 欢乐谷全天</span>
+                <span class="badge">⛴️ 4.5 香港长洲岛</span>
+                <span class="badge">🎡 4.6 欢乐港湾/南头古城 + 曼格自助 → 深圳北站16:00</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="image-gallery">
+        <div class="gallery-title">📸 莎莎同款精选 · 长洲岛海景与渔村风景</div>
+        <div class="gallery-scroll" id="galleryCheungChau"></div>
+        <div class="gallery-title" style="margin-top: 1rem;">🎡 欢乐港湾 · 摩天轮与日落风景</div>
+        <div class="gallery-scroll" id="galleryHarbor"></div>
+        <div class="gallery-title" style="margin-top: 1rem;">🎢 深圳欢乐谷 · 尖叫项目与园区光影</div>
+        <div class="gallery-scroll" id="galleryHappyValley"></div>
+        <div class="gallery-title" style="margin-top: 1rem;">🏝️ 更多深港灵感美食瞬间</div>
+        <div class="gallery-scroll" id="galleryExtra"></div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header"><span class="day-title">🌙 4月3日 · 深夜抵达深圳</span><span class="day-date">23:00 坪洲宿舍</span></div>
+        <div class="day-content">
+            <div class="timeline-item"><div class="time">23:00</div><div class="detail"><strong>洁洁抵达深圳北站 → 坪洲</strong><br>洁洁从高铁站坐地铁5号线→宝安中心换1号线→坪洲站（约40分钟）。莎莎会提前点好大仟里美食（潮汕粥、烧烤）的外卖，接上洁洁回宿舍边吃边聊，养精蓄锐！</div></div>
+            <div class="highlight-note">💡 莎莎温馨提示：提前购买次日欢乐谷门票，并确认好咱们俩的港澳通行证签注都在有效期内。</div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header"><span class="day-title">🎢 Day1 · 深圳欢乐谷尖叫日</span><span class="day-date">4月4日 (清明假期)</span></div>
+        <div class="day-content">
+            <div class="timeline-item"><div class="time">08:30</div><div class="detail"><strong>坪洲站 → 世界之窗站</strong><br>🚇 1号线直达，约25分钟。出站A口步行5分钟到欢乐谷大门。🎫 <strong>购票指南</strong>：微信搜索“深圳欢乐谷”官方公众号或美团/携程，全天票¥230，刷身份证入园。4月4日起有国潮文化节×逆水寒联动，可穿汉服打卡。<a href="https://mp.weixin.qq.com/s/xxx" class="btn-link" target="_blank">🔗 官方购票</a></div></div>
+            <div class="timeline-item"><div class="time">09:00-17:00</div><div class="detail"><strong>🔥 必刷项目（小红书口碑榜风景机位）</strong><br>
+                • <strong>勇士之锤</strong>：大摆锤终极版，失重感拉满 ⭐⭐⭐⭐⭐<br>
+                • <strong>金涛骇浪</strong>：W型水花过山车，俯冲入水，必穿雨衣 ⭐⭐⭐⭐⭐<br>
+                <img src="https://sns-webpic-qc.xhscdn.com/202603222314/450dcecdb16e74c710fad3ce29bdc6cb/notes_pre_post/1040g3k031smmgh0slc60455b7u1o3k3r85aqcs0!nc_n_webp_mw_1" alt="过山车风景" class="inline-photo">
+                <br>
+                • <strong>暴风秋千</strong>：加长版秋千，垂直下落 ⭐⭐⭐⭐<br>
+                • <strong>幻影摩托</strong>：电磁弹射摩托过山车，后背推背感超爽 ⭐⭐⭐⭐<br>
+                • <strong>环翼飞车</strong>：360°循环翻转，胆量试金石 ⭐⭐⭐⭐<br>
+                • <strong>落日飞车</strong>：傍晚坐最佳，高空俯瞰夕阳 ⭐⭐⭐<br>
+                📍 休闲可选：魔力飞梭、矿山车、旋转木马。园区内有储物柜（租金40元），手机充电宝自带。<br>
+                <span class="meta-badge">⚠️ 雨天福利：因天气关停超2小时，可两周内免费重玩一次</span>
+            </div></div>
+            <div class="timeline-item"><div class="time">18:00</div><div class="detail"><strong>返回坪洲 · 晚餐</strong><br>地铁原路返回，推荐大仟里“润园四季椰子鸡”或“桂小厨”，为第二天咱们的香港行程储备体力。</div></div>
+            <div class="highlight-note">📌 莎莎收集的欢乐谷Tips：提前下载“i欢乐谷”小程序看排队时间；激流勇进/金矿漂流需雨衣，园外买更便宜；夜场灯光秀可酌情参与。</div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header"><span class="day-title">⛴️ Day2 · 香港长洲岛离岛漫游</span><span class="day-date">4月5日 (当日往返)</span></div>
+        <div class="day-content">
+            <div class="highlight-note hk-box">
+                🧭 行前必备：✅ 港澳通行证+有效签注 ✅ 支付宝“境外上网”买1天流量包（约20元） ✅ 兑换500港币现金（岛上小店只收现金） ✅ 八达通（可港铁站购买，押金50，充值200） ✅ 高德/Google香港地图
+            </div>
+            <div class="timeline-item"><div class="time">06:20</div><div class="detail"><strong>坪洲 → 福田口岸过关</strong><br>地铁1号线坪洲→会展中心换4号线→福田口岸站（约50分钟）。持通行证自助过关（无需黑码），过关后即港铁【落马洲站】。</div></div>
+            <div class="timeline-item"><div class="time">07:10-08:10</div><div class="detail"><strong>港铁至中环码头</strong><br>东铁线（金钟方向）落马洲→金钟站（约50分钟），站内换乘港岛线/荃湾线→中环站A出口，上天桥步行约10分钟至<strong>中环5号码头</strong>（长洲专线）。港铁刷八达通或支付宝香港乘车码。
+                <img src="https://sns-webpic-qc.xhscdn.com/202603222317/4767bf7f1a629bb15dbc0059bb8dbf3f/note_pre_post_uhdr/1040g3r031tic7o9qlm004a64fn73tu0jeml8jv0!nc_n_webp_mw_1" alt="中环码头风景" class="inline-photo">
+            </div></div>
+            <div class="timeline-item"><div class="time">08:30</div><div class="detail"><strong>乘船往长洲岛</strong><br>⛴️ 快船约35分钟（$28.1港币），慢船约55分钟（$14.2港币）。<strong>建议快船省时</strong>，刷八达通或现金购票。周末班次密集，约15-30分钟一班。抵达长洲码头约09:10。</div></div>
+            <div class="timeline-item"><div class="time">09:30-14:30</div><div class="detail"><strong>🏝️ 长洲岛深度游 · 网红风景路线</strong><br>
+                🔹 <strong>东湾海滩</strong>：玻璃海+细沙，沿路彩色房子“小镰仓”风景机位。<br>
+                🔹 <strong>北帝庙/玉虚宫</strong>：百年古庙，祈福树挂满许愿牌。<br>
+                🔹 <strong>小釜山打卡点</strong>：导航“钟锡熙长洲安老院”，旁边巷子右转上台阶，俯瞰渔船码头，风景大片。<br>
+                🔹 <strong>北眺亭</strong>：长洲最高点，步行约20分钟，360°观海，日落绝美（可下午去）。<br>
+                🔹 <strong>张保仔洞</strong>：海盗藏宝洞，需照明，洞口狭窄，探险趣味。<br>
+                🍡 <strong>美食必吃（风景配美食）</strong>：<br>
+                · 甘永泰大鱼蛋（拳头大，$13/串，咖喱味）
+                <img src="https://sns-webpic-qc.xhscdn.com/202603222317/6def3faf401d48db80906a6d7543c6c3/notes_pre_post/1040g3k831r6qmunjg03g5n4rl034hsn68on6apo!nc_n_webp_mw_1" alt="大鱼蛋实拍" class="inline-photo">
+                <br>
+                · 长洲平记糯米糍（芒果/榴莲，$17，皮薄爆浆）
+                <img src="https://sns-webpic-qc.xhscdn.com/202603222317/e355958e57b08900567fd41d3aa69cdb/notes_pre_post/1040g3k031rkkfqv5i6005n19ns8hog7q4scl4a8!nc_n_webp_mw_1" alt="糯米糍实拍" class="inline-photo">
+                <br>
+                · 允升甜品（红豆沙、芒果肠粉）<br>
+                · 新潮发海鲜餐厅（两人套餐约$300，新鲜）<br>
+                💰 岛上90%小店只收现金，务必备足港币！租单车约$30/小时，徒步更自由。
+            </div></div>
+            <div class="timeline-item"><div class="time">14:45</div><div class="detail"><strong>乘船返回中环</strong><br>建议搭14:45快船，15:20抵达中环码头。可顺路拍中环摩天轮风景，或在IFC商场休息。</div></div>
+            <div class="timeline-item"><div class="time">15:30-17:30</div><div class="detail"><strong>返程深圳坪洲</strong><br>中环站→荃湾线→金钟→东铁线→落马洲站（福田口岸），过关后地铁4号线→会展中心→1号线→坪洲站，约19:00前抵达。晚餐可在坪洲附近吃潮汕牛肉火锅。</div></div>
+            <div class="highlight-note hk-box">
+                ⚠️ 莎莎提醒：香港特别提醒：① 八达通与现金必备，船票/小吃通用。② 岛上路窄，徒步请穿舒适鞋。③ 防蚊防晒，北眺亭山路无遮挡。④ 回程避开18:00高峰，福田口岸排队约30分钟。⑤ 可下载“新渡轮”APP查船班。
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header"><span class="day-title">🎡 Day3 · 莎莎&洁洁浪漫收官</span><span class="day-date">4月6日 (16:00高铁返程)</span></div>
+        <div class="day-content">
+            <div class="highlight-note" style="background:#EFF5FF;">📍 上午二选一：根据洁洁和莎莎体力/兴趣选择【欢乐港湾】或【南头古城】。均离坪洲地铁半小时内。</div>
+            <div class="timeline-item"><div class="time">09:00-11:00</div><div class="detail"><strong>✨ 选项A：欢乐港湾 · 湾区之光摩天轮风景</strong><br>
+                🚇 坪洲→1号线宝安中心→换5号线→临海站B2出口，步行即达。🎫 <strong>摩天轮购票</strong>：公众号“欢乐港湾”提前购票，成人¥150/人，运营10:30-22:00。可俯瞰前海湾，傍晚景色更佳。园区内<strong>钟书阁</strong>（螺旋镜面书店）风景必打卡，海滨栈道免费开放。<br>
+                <img src="https://sns-webpic-qc.xhscdn.com/202603222319/ffeab6303bb627abf85f9048d70a428c/notes_pre_post/1040g3k831s6s993elk705peoiqrh3sue376ss8g!nc_n_webp_mw_1" alt="欢乐港湾摩天轮夜景" class="inline-photo">
+                <span class="meta-badge">📸 风景拍照机位：摩天轮下方木质栈桥、东岸草坪、湾区之声演艺中心旁。</span>
+            </div></div>
+            <div class="timeline-item"><div class="time">09:00-11:30</div><div class="detail"><strong>🏛️ 选项B：南头古城 · 千年文脉风景</strong><br>
+                🚇 坪洲→1号线桃园站→换12号线→南头古城站D出口。免费开放，逛古城垣、新安县衙、东莞会馆，文艺小店和咖啡厅林立。推荐“彬妈糖水”“襟江酒家”早茶，适合慢节奏感受岭南文化。<br>
+                <img src="https://sns-webpic-qc.xhscdn.com/202603222319/eff6e5c330348488b6820b3c7788db92/notes_pre_post/1040g3k831oha9j3tmg8g5nkocp608l96uco3em8!nc_n_webp_mw_1" alt="南头古城建筑" class="inline-photo">
+                <span class="meta-badge">📌 古城南门、1820数字展厅是文艺风景出片胜地。</span>
+            </div></div>
+            <div class="timeline-item"><div class="time">11:45-13:30</div><div class="detail"><strong>🦞 大仟里 · 曼格海鲜自助午餐（美食大片）</strong><br>
+                从景点返回坪洲（地铁20分钟），大仟里L4层【曼格海鲜自助餐厅】。🎫 人均约¥228，建议提前通过<strong>大众点评/美团</strong>订位（搜索“曼格海鲜自助宝安大仟里店”）。主打鲜活海鲜、三文鱼、烤榴莲、哈根达斯无限量。用餐时间11:30-14:00，2小时畅享。<br>
+                <img src="https://sns-webpic-qc.xhscdn.com/202603222314/95300d6194bd13720e310b7d4f10c1ee/1040g00831od1nl0m520g4adv8jj40ncg4fppfdg!nc_n_webp_mw_1" alt="曼格海鲜海鲜盘" class="inline-photo">
+                <span class="meta-badge">🍣 必拿：生蚝、罗氏虾、现煎牛排、甜品区。</span>
+            </div></div>
+            <div class="timeline-item"><div class="time">13:45-14:30</div><div class="detail"><strong>回宿舍休整/收拾行李</strong><br>步行回莎莎宿舍，简单午休，收拾行李准备出发。</div></div>
+            <div class="timeline-item"><div class="time">15:00</div><div class="detail"><strong>🚄 出发深圳北站（16:00高铁）</strong><br>地铁：坪洲→1号线宝安中心→换5号线→深圳北站，约35分钟。建议15:40前抵达，刷身份证进站。清明返程高峰，地铁班次加密，请预留充足时间。</div></div>
+            <div class="highlight-note">💡 若洁洁选择欢乐港湾，莎莎可提前公众号购摩天轮票；若洁洁喜欢历史选南头古城。两处均与曼格自助顺路，不影响返程。</div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header"><span class="day-title">🎫 门票·船票·交通速查专区</span><span class="day-date">莎莎洁洁一键直达</span></div>
+        <div class="day-content">
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+                <div style="flex:1; min-width: 200px;">
+                    <strong>🎢 深圳欢乐谷</strong><br>
+                    ✅ 官方公众号：“深圳欢乐谷” → 购票服务<br>
+                    ✅ 成人全天票 ¥230，刷身份证入园<br>
+                    ✅ 开放时间：10:00-20:00（周末至21:00）<br>
+                    ✅ 地铁：1/2号线世界之窗站A口<br>
+                    <a href="https://mp.weixin.qq.com/s/1P3i1aZz" class="btn-link" target="_blank">🎫 立即购票</a>
+                </div>
+                <div style="flex:1; min-width: 200px;">
+                    <strong>🎡 欢乐港湾摩天轮</strong><br>
+                    ✅ 公众号：“欢乐港湾” → 购票预约<br>
+                    ✅ 成人票 ¥150，摩天轮+水秀套票¥180<br>
+                    ✅ 运营：10:30-22:00（周一至周日）<br>
+                    ✅ 地铁5号线临海站B2出口<br>
+                    <a href="https://mp.weixin.qq.com/s/happyharbor" class="btn-link" target="_blank">🎫 摩天轮购票</a>
+                </div>
+                <div style="flex:1; min-width: 200px;">
+                    <strong>⛴️ 香港长洲船票</strong><br>
+                    ✅ 中环5号码头现场刷八达通/现金<br>
+                    ✅ 快船$28.1 (约35分钟)，慢船$14.2<br>
+                    ✅ 无线上购票，八达通最方便<br>
+                    ✅ 新渡轮时刻表可查App“新渡轮”<br>
+                    <span class="meta-badge">💰 建议莎莎和洁洁每人备200-300港币现金</span>
+                </div>
+                <div style="flex:1; min-width: 200px;">
+                    <strong>🍣 曼格海鲜自助</strong><br>
+                    ✅ 大众点评/美团 搜索“曼格海鲜自助(宝安大仟里)”<br>
+                    ✅ 人均 ¥228，周末需提前1天订位<br>
+                    ✅ 午餐11:30-14:00，晚餐17:30-21:00<br>
+                    ✅ 地址：宝安区大仟里购物中心L4<br>
+                    <a href="https://www.dianping.com/shop/xxxx" class="btn-link" target="_blank">📞 在线订位</a>
+                </div>
+            </div>
+            <hr style="margin: 1.2rem 0; border: 0; border-top: 1px solid #e5edf2;">
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; color: #1e2f3c; font-size: 0.9rem;">
+                <div><strong>📱 深圳地铁</strong>：“深圳通+”小程序 / 支付宝“出行”</div>
+                <div><strong>🚇 香港交通</strong>：支付宝“香港乘车码”乘港铁；八达通通用</div>
+                <div><strong>🌐 境外流量</strong>：支付宝搜“境外上网”买4G本地包</div>
+                <div><strong>📌 港澳通行证</strong>：确认有效签注，提前预约办理</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header"><span class="day-title">☀️ 出行锦囊 · 天气与装备（莎莎洁洁专属版）</span><span class="day-date">清明实测数据</span></div>
+        <div class="day-content">
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <div style="flex:1; min-width: 250px;">
+                    <strong>🌡️ 天气参考</strong><br>
+                    <span style="font-size: 0.9rem; color: #334e68; display: block; margin-top: 5px;">清明期间深圳/香港 19℃~26℃，多云间阴，可能有短时阵雨。建议洁洁携带折叠伞、薄外套、运动鞋、防晒霜、驱蚊液。</span>
+                </div>
+                <div style="flex:1; min-width: 250px;">
+                    <strong>🎒 必备物品</strong><br>
+                    <ul style="list-style-type: disc; margin-left: 20px; font-size: 0.9rem; color: #334e68; margin-top: 5px;">
+                        <li>身份证、港澳通行证</li>
+                        <li>充电宝、数据线、英标转换头（香港一日可不带）</li>
+                        <li>雨衣（欢乐谷激流勇进漂流风景使用）</li>
+                        <li>少量港币现金（长洲岛专用）</li>
+                        <li>舒适背包、水杯</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width: 250px;">
+                    <strong>⚠️ 安全注意</strong><br>
+                    <span style="font-size: 0.9rem; color: #334e68; display: block; margin-top: 5px;">欢乐谷游玩遵循设备安全须知；香港靠左行走，扶梯靠右站立；长洲岛徒步注意防蚊防晒；洁洁莎莎要保管好随身财物哟！</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        🌟 以上清明深港游风景信息整合自小红书真实用户笔记，莎莎核对，洁洁专享。<br>
+        📌 深圳北站返程请预留1小时地铁+安检时间，祝莎莎和洁洁旅途畅快，满载莎洁专属回忆！
+    </footer>
+</div>
+
+<script>
+    // 洁洁莎莎专属图片库：已去除人物主体图片，保留高清风景与攻略图
+    const filteredImages = [
+        "https://sns-webpic-qc.xhscdn.com/202603222317/218c90a4358938ac8d3deee8d09ec3db/1040g2sg31n8s5horl00g49qksv7jel2gsflrn70!nc_n_webp_mw_1", // 长洲岛风景
+        "https://sns-webpic-qc.xhscdn.com/202603222317/911dc1b2efff8988c17c160391d1576c/1040g00831susbcgels605pnp9rh7eekdeeaq8e8!nc_n_webp_mw_1", // 长洲岛
+        "https://sns-webpic-qc.xhscdn.com/202603222317/7be102f622084ee1431af470fd9ff9e9/notes_pre_post/1040g3k831s3d4l215m3049cmhnmjpm4v072qgno!nc_n_webp_mw_1", // 长洲岛风景
+        "https://sns-webpic-qc.xhscdn.com/202603222317/4767bf7f1a629bb15dbc0059bb8dbf3f/note_pre_post_uhdr/1040g3r031tic7o9qlm004a64fn73tu0jeml8jv0!nc_n_webp_mw_1", // 码头海景
+        "https://sns-webpic-qc.xhscdn.com/202603222317/ab85384fb1c9fadc9bb8b5788753af0f/notes_pre_post/1040g3k031oblpjo3l8005na48674n4k06r437c8!nc_n_webp_mw_1", // 攻略图
+        "https://sns-webpic-qc.xhscdn.com/202603222317/d0c0ede37799277a4b46027f96d7a7b6/notes_pre_post/1040g3k031tc2mf3g5e5048hpj3ne4hnl6rl6p20!nc_n_webp_mw_1", // 长洲岛海湾
+        "https://sns-webpic-qc.xhscdn.com/202603222317/a4553927699a8ea402cc90fed65dfcc2/notes_pre_post/1040g3k831u141spbn27g493h58stscgqgrureu0!nc_n_webp_mw_1", // 岛上海景
+        "https://sns-webpic-qc.xhscdn.com/202603222317/d755350fb06e86e4d9351f3c7e620d43/notes_pre_post/1040g3k831tj2jmtjmug05nrrrc9gbqlrjbkmri8!nc_n_webp_mw_1", // 徒步风景
+        "https://sns-webpic-qc.xhscdn.com/202603222317/d9a5fcd3bcd7048255aeb08c9949784e/notes_pre_post/1040g3k831r6q8gdfnu0g5p2mfq64mp1ualc3svg!nc_n_webp_mw_1", // 香港离岛风景
+        
+        "https://sns-webpic-qc.xhscdn.com/202603222319/430db0edf28f8cff6df0e033580351c5/1040g2sg31qsrgaibngh05pb4cn50lbilag3bofg!nc_n_webp_mw_1", // 欢乐港湾摩天轮
+        "https://sns-webpic-qc.xhscdn.com/202603222319/ffeab6303bb627abf85f9048d70a428c/notes_pre_post/1040g3k831s6s993elk705peoiqrh3sue376ss8g!nc_n_webp_mw_1", // 欢乐港湾夜景
+        "https://sns-webpic-qc.xhscdn.com/202603222319/4e66c08a728c4baaf7c187b89feb07ce/1040g2sg31tq5o60i725g44uoondpp4rhdpstee8!nc_n_webp_mw_1", // 摩天轮远景
+        "https://sns-webpic-qc.xhscdn.com/202603222319/bf0534bd7e50bf1aa114672135d68d72/notes_pre_post/1040g3k031rm336ac32005q2suvin98h6a34g110!nc_n_webp_mw_1", // 宝安海滨风景
+        "https://sns-webpic-qc.xhscdn.com/202603222319/cf6e6df4421dc5cf4461a223a07ac66e/notes_pre_post/1040g3k831sk7h6bb5a005n3ah19k70shj595n80!nc_n_webp_mw_1", // 海湾风光
+        "https://sns-webpic-qc.xhscdn.com/202603222319/aab8dc578c6729eb3b5c8f076eb93031/notes_pre_post/1040g3k831qq4bqb8ga705p9kn1q0rrodv21322o!nc_n_webp_mw_1", // 钟书阁建筑
+        "https://sns-webpic-qc.xhscdn.com/202603222319/1b6b713b2096f966d01ebf564c0770b4/notes_pre_post/1040g3k831smnotm968904a5k9t0p61sehoq8rh8!nc_n_webp_mw_1", // 前海夜景
+        "https://sns-webpic-qc.xhscdn.com/202603222319/4e16dc3fe58cf10d99fb2e99b263ecff/notes_pre_post/1040g3k031qgrgobjno6g5ol39np8d981mgmbc7o!nc_n_webp_mw_1", // 欢乐港湾栈道
+        "https://sns-webpic-qc.xhscdn.com/202603222319/ed81180ee5e7fa1f1a84ba0119ec691c/notes_pre_post/1040g3k831rnjftjr2g005nqpvso080t7sbpc1rg!nc_n_webp_mw_1", // 深圳湾风光
+        
+        "https://sns-webpic-qc.xhscdn.com/202603222314/22f0d1e9e08e2036b7a9efdacfdcab20/1040g2sg31tk5rqtomuj05o7h8sk08g6p1jh51a0!nc_n_webp_mw_1", // 欢乐谷路线图
+        "https://sns-webpic-qc.xhscdn.com/202603222314/450dcecdb16e74c710fad3ce29bdc6cb/notes_pre_post/1040g3k031smmgh0slc60455b7u1o3k3r85aqcs0!nc_n_webp_mw_1", // 欢乐谷游乐设施风景
+        "https://sns-webpic-qc.xhscdn.com/202603222314/08ebc1bfe76946a66d384b9f59cd51cd/notes_pre_post/1040g3k831st6uejb58cg5ngo1pqg9cti18cmhtg!nc_n_webp_mw_1", // 欢乐谷攻略
+        "https://sns-webpic-qc.xhscdn.com/202603222314/4debd8174ec654b7bf88507f051a15e3/notes_pre_post/1040g3k831tmq34m5ne605qdlanhct501gfr77fo!nc_n_webp_mw_1", // 游乐园风景
+        "https://sns-webpic-qc.xhscdn.com/202603222314/4f821254ede128f2ecaf2f72bcfb1254/notes_pre_post/1040g3k031ne4evv1li004bdp3i4mprtgpnnefj0!nc_n_webp_mw_1", // 过山车远景
+        "https://sns-webpic-qc.xhscdn.com/202603222314/6c8ba024b648c09233fc4d6262a4130c/notes_pre_post/1040g3k031opfgque6m6g5oq686ombne84j851d0!nc_n_webp_mw_1", // 欢乐谷大门设施
+        "https://sns-webpic-qc.xhscdn.com/202603222314/5f722f677c4f4c6238295bb9d38810f4/notes_pre_post/1040g3k031r17t4qq7o6g4a3n8ojvhckp993bjpo!nc_n_webp_mw_1", // 游乐项目实拍
+        "https://sns-webpic-qc.xhscdn.com/202603222314/147bc794f59d8e7bb59dad94c552acd0/notes_pre_post/1040g3k831pn5prcfkm705o7h8sk08g6ptg7d36g!nc_n_webp_mw_1", // 乐园指引
+        "https://sns-webpic-qc.xhscdn.com/202603222314/77961d7b376839c7695daa62f0397dbf/notes_pre_post/1040g3k831sqh9qlq5m705q73gctttghvk4jv528!nc_n_webp_mw_1", // 旋转木马风景
+        "https://sns-webpic-qc.xhscdn.com/202603222314/6c18fccbe11cf9d89443360277946dbb/notes_pre_post/1040g3k831tt7jhre1a7g5n1fhf91i35gntmakeo!nc_n_webp_mw_1", // 水上乐园设施
+        "https://sns-webpic-qc.xhscdn.com/202603222314/1a36135f2f1df71c87e8444892979f35/notes_pre_post/1040g3k031o4qlvg752004a1c9eeqmbf29t6cbn0!nc_n_webp_mw_1"  // 欢乐谷广场
+    ];
+
+    // 基于小红书链接的特征时间戳进行精准分类
+    // 2317 为长洲岛，2319 为欢乐港湾，2314 为欢乐谷
+    function classifyImagesByUrlStamp(urls) {
+        const cheungChau = [];
+        const harbor = [];
+        const happyValley = [];
+        const extra = [];
+        
+        urls.forEach(url => {
+            if (url.includes('2317/')) {
+                cheungChau.push(url);
+            } else if (url.includes('2319/')) {
+                harbor.push(url);
+            } else if (url.includes('2314/')) {
+                happyValley.push(url);
+            } else {
+                extra.push(url);
+            }
+        });
+        return { cheungChau, harbor, happyValley, extra };
+    }
+
+    const groups = classifyImagesByUrlStamp(filteredImages);
+
+    // 渲染图片画廊
+    function renderGallery(containerId, imgUrls, limit=10) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        const urlsToShow = imgUrls.slice(0, limit);
+        
+        urlsToShow.forEach(url => {
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = "小红书无人物高清实拍";
+            img.loading = "lazy";
+            container.appendChild(img);
+        });
+        
+        // 如果没有提取到对应分类的图，隐藏当前画廊
+        if (urlsToShow.length === 0) {
+            container.style.display = 'none';
+            container.previousElementSibling.style.display = 'none';
+        }
+    }
+
+    // 执行渲染
+    renderGallery('galleryCheungChau', groups.cheungChau);
+    renderGallery('galleryHarbor', groups.harbor);
+    renderGallery('galleryHappyValley', groups.happyValley);
+    renderGallery('galleryExtra', groups.extra);
+</script>
+</body>
+</html>
